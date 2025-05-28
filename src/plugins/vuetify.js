@@ -1,30 +1,25 @@
-// src/plugins/vuetify.js
-import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
-import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-export default createVuetify({
+// Vuetify uses this icon set name by default when you import @mdi/font
+const vuetify = createVuetify({
     components,
     directives,
-    icons: {
-        defaultSet: 'mdi',
-        aliases,
-        sets: {
-            mdi,
-        },
-    },
     theme: {
-        defaultTheme: 'darkTheme',
+        defaultTheme: 'dark',
         themes: {
-            darkTheme: {
-                dark: true, // <-- this enables dark mode
+            dark: {
+                dark: true,
                 colors: {
-                    primary: '#1e56e5',
-                    secondary: '#ff9900',
+                    primary: '#00BCD4'
                 },
             },
         },
     },
+    icons: {
+        defaultSet: 'mdi', // This works with @mdi/font
+    },
 })
+
+export default vuetify

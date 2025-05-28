@@ -32,7 +32,7 @@ function getKeyColor(key) {
       <v-btn
           v-for="key in row0"
           :key="key"
-          class="mx-1 font-weight-bold"
+          class="mx-1 font-weight-bold key-btn"
           :color="getKeyColor(key)"
           elevation="1"
           @click="emitKey(key)"
@@ -41,12 +41,11 @@ function getKeyColor(key) {
       </v-btn>
     </div>
 
-    <!-- QWERTY rows -->
     <div class="d-flex justify-center mb-2">
       <v-btn
           v-for="key in row1"
           :key="key"
-          class="mx-1 font-weight-bold"
+          class="mx-1 font-weight-bold key-btn"
           :color="getKeyColor(key)"
           elevation="1"
           @click="emitKey(key)"
@@ -59,7 +58,7 @@ function getKeyColor(key) {
       <v-btn
           v-for="key in row2"
           :key="key"
-          class="mx-1 font-weight-bold"
+          class="mx-1 font-weight-bold key-btn"
           :color="getKeyColor(key)"
           elevation="1"
           @click="emitKey(key)"
@@ -68,8 +67,8 @@ function getKeyColor(key) {
       </v-btn>
 
       <!-- Enter button now part of this row -->
-      <v-btn class="mx-1" color="primary" @click="emitKey('Enter')">
-        Submit
+      <v-btn class="mx-1 key-btn-submit" color="primary" @click="emitKey('Enter')">
+        ✔
       </v-btn>
     </div>
 
@@ -77,7 +76,7 @@ function getKeyColor(key) {
       <v-btn
           v-for="key in row3"
           :key="key"
-          class="mx-1 font-weight-bold"
+          class="mx-1 font-weight-bold key-btn"
           :color="getKeyColor(key)"
           elevation="1"
           @click="emitKey(key)"
@@ -86,7 +85,7 @@ function getKeyColor(key) {
       </v-btn>
 
       <!-- Backspace button after 'M' -->
-      <v-btn class="mx-1" color="error" @click="emitKey('Backspace')">
+      <v-btn class="mx-1" variant="tonal" color="error" @click="emitKey('Backspace')">
         ⌫
       </v-btn>
     </div>
@@ -94,5 +93,19 @@ function getKeyColor(key) {
 </template>
 
 <style scoped>
+@media (max-width: 800px) {
+  .key-btn {
+    width: 26px;
+    min-width: 26px;
+    height: 36px;
+    padding: 1px;
+  }
 
+  .key-btn-submit {
+    width: 42px;
+    min-width: 42px;
+    height: 36px;
+    padding: 1px;
+  }
+}
 </style>

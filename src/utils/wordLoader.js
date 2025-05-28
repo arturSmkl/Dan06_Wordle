@@ -1,4 +1,4 @@
-export async function loadWordList(url = '/public/wordList.txt') {
+export async function loadWordList(url = '/wordList.txt') {
     const response = await fetch(url)
     const text = await response.text()
 
